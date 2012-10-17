@@ -1,0 +1,56 @@
+# NAME
+
+Soar::Production::Printer - Print Soar productions
+
+# VERSION
+
+version 0.01
+
+# SYNOPSIS
+
+    use Soar::Production::Parser;
+    use Soar::Production::Printer;
+    use Data::Dumper;
+    
+
+    #read in a series of productions from a file
+    my $parser = Soar::Production::Parser->new;
+    my @trees=$parser->parse_file("foo.soar");
+    
+
+    #print each of the productions to standard out
+    for my $prod(@trees){
+	print tree_to_text($prod);
+    }
+
+# DESCRIPTION
+
+This module can be used to print production parse trees produced by Soar::Production::parser. Use the function `tree_to_text` to accomplish this.
+
+Printing is accomplished by traversing the input structure exactly as it is specified by the grammar used by Soar::Production::Parser. 
+
+# NAME
+
+Soar::Production::pRINT - Perl extension for printing Soar productions
+
+# METHODS
+
+## `tree\_to\_text`
+
+Argument: parse tree structured as those returned by Soar::Production::Parser.
+Returns a text representation of the production which can be sourced by Soar.
+
+## TODO
+
+Pretty printing is not yet possible, which is too bad because it means the output can be pretty disgusting looking.
+
+# AUTHOR
+
+Nathan Glenn <garfieldnate@gmail.com>
+
+# COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2012 by Nathan Glenn.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
